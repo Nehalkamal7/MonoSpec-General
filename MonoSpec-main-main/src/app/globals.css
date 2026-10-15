@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Strict Monochrome Light Theme */
+  --bg-canvas: #ffffff;
+  --bg-surface: #f9f9fb;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-hover: #f1f1f4;
+  --bg-active: #e4e4e7;
+  --border-subtle: #e4e4e7;
+  --border-strong: #18181b;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --accent-contrast: #000000;
+  --accent-contrast-text: #ffffff;
+  --code-bg: #f4f4f6;
+  --selection-bg: #18181b;
+  --selection-text: #ffffff;
+}
+
+.dark {
+  /* Strict Monochrome Dark Theme (Pure Black #000000 Base) */
+  --bg-canvas: #000000;
+  --bg-surface: #0a0a0c;
+  --bg-surface-elevated: #111114;
+  --bg-surface-hover: #18181b;
+  --bg-active: #27272a;
+  --border-subtle: #27272a;
+  --border-strong: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-contrast: #ffffff;
+  --accent-contrast-text: #000000;
+  --code-bg: #0d0d0f;
+  --selection-bg: #ffffff;
+  --selection-text: #000000;
+}
+
+* {
+  border-color: var(--border-subtle);
+  outline-color: var(--border-strong);
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* Precision Enterprise Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Subtle Grid Dot Texture */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(113, 113, 122, 0.18) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-dots {
+  background-image: radial-gradient(rgba(113, 113, 122, 0.22) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom Markdown & Code Styling */
+.markdown-prose {
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.markdown-prose h1,
+.markdown-prose h2,
+.markdown-prose h3,
+.markdown-prose h4 {
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-prose h1 {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.markdown-prose h2 {
+  font-size: 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.markdown-prose h3 {
+  font-size: 1.1rem;
+}
+
+.markdown-prose p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.markdown-prose ul,
+.markdown-prose ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.markdown-prose li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.875rem;
+}
+
+.markdown-prose th,
+.markdown-prose td {
+  border: 1px solid var(--border-subtle);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+.markdown-prose th {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.markdown-prose blockquote {
+  border-left: 3px solid var(--accent-contrast);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
